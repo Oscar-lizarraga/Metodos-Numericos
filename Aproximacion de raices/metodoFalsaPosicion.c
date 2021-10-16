@@ -1,5 +1,5 @@
 /*****************************************************************
-*   Programa para calcular raices por el metodo de biseccion     *
+*   Programa para calcular raices por el falsa posicion     *
 *   Autor: Oscar Lizarraga                                       *
 ******************************************************************/
 

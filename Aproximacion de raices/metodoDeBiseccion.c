@@ -57,7 +57,7 @@ double ImprimirBiseccion(double f(double x, int op),double a, double b, double e
     	{
     		cv = c;
     	}
-    	c=(f(b,opcion)*a - f(a,opcion)*b)/(f(b,opcion)-f(a,opcion))
+    	c=(a+b)/2;
     	cifras = CifrasCorrectas(cv,c);
       	printf("%d. \t%.10lf \t%.10lf \t%.10lf \t%.10lf \t%.10lf \t%d\n",iter,a,b,c,f(c,opcion),fabs((c - cv) / c),cifras);
       	if(f(a,opcion)*f(c,opcion)>0)

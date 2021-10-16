@@ -56,6 +56,13 @@ public class nueva{
 
 ```
 
+```{r}
+$\sqrt[n]{x}$
+
+```
+\begin{environmentname}
+$$ x^2 = \fracc{x}{y}$$
+
 <!--tablas-->
 
 | Tablas	| Are	| Grandes	|
