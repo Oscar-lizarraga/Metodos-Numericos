@@ -1,24 +1,27 @@
 #include <iostream>
 #include <stdlib.h>
 #include <iomanip>
-#include <locale.h>
+
 using namespace std;
 double *puntos_x,*puntos_y,**efes;
 
 int main(){
-    setlocale(LC_ALL, "");
+  
     int i,j,nom_puntos;
     cout<<" Diferencias Divididas de Newton"<<endl;
-    cout <<" Calcula el polinomio interpolador de una funci�n" << endl;
+    cout <<" Calcula el polinomio interpolador de una funcion" << endl;
+    
     for(int i=0;i<87;i++)cout<<".";
     cout << "\nIngrese el numero de puntos: ";
     cin >> nom_puntos;
+  
     //Creamos memoria dinamica
     efes=new double *[nom_puntos];
     for(i=0;i<nom_puntos;i++)efes[i]= new double[nom_puntos-(i)];
     puntos_x = new double [nom_puntos];
     puntos_y = new double [nom_puntos];
-    //Ingresaomos las cordenadas de los puntos
+  
+    //Ingresamos las cordenadas de los puntos
     for(i=0; i<nom_puntos;i++){
         cout<<"Ingrese x("<<i<<")=";
         cin>>puntos_x[i];
@@ -28,12 +31,14 @@ int main(){
         cout<<"Ingrese f("<<i<<")=";
         cin>>puntos_y[i];
     }
+
     //Tabla 1
     cout<<"\nXi\t";
     cout<<fixed<<setprecision(3);
     for(i=0;i<nom_puntos;i++)cout<<puntos_x[i]<<"\t";
     cout<<"\nf(Xi)\t";
     for(i=0;i<nom_puntos;i++)cout<<puntos_y[i]<<"\t";
+
     //Tabla 2
     cout<<endl;
     cout<<"\ni\t\t\t\t";
@@ -41,6 +46,7 @@ int main(){
     cout<<"\nj\tXi\tf(Xi)\t\t";
     for(i=1;i<nom_puntos;i++)cout<<i<<".\t\t";
     cout<<endl;
+
     //Operaciones
     //Igualamos las cordenas en y de los puntos y se lo igualamos a nuestra matriz
     for(j=0;j<nom_puntos;j++)efes[0][j]=puntos_y[j];
@@ -49,6 +55,7 @@ int main(){
             efes[i][j]=(efes[i-1][j+1]-efes[i-1][j])/(puntos_x[i+j]-puntos_x[j]);
         }
     }
+    
     //Imprimir
     for(i=0; i<nom_puntos;i++){
         cout<<i<<"\tX"<<i<<"="<<setprecision(1)<<puntos_x[i]<<"\t"<<setprecision(3);
@@ -57,6 +64,7 @@ int main(){
         }
         cout<<endl;
     }
+
     //Creamos polinomio
     cout<<"\nEl polinomio interpolar es igual a: ";
     for(i=0;i<nom_puntos;i++){
@@ -69,6 +77,7 @@ int main(){
 
         }
     }
+
     //Evaluar puntos
     int n_puntos,k;
     double x,r,total;
